@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adithya Kammati | Software Engineer</title>
+    <meta name="description" content="The portfolio of Adithya Kammati, a software engineer specializing in AI and Full-Stack development.">
+    <meta name="author" content="Adithya Kammati">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>AK</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Tim Gordeev Inspired (Monochrome + Red Accent) -->
+    <!-- Application Structure Plan: A single-page, scroll-based application designed to exactly replicate the high-end, minimalist aesthetic of the provided reference image. The structure is built around a powerful hero section with oversized background typography. This is followed by clean, focused sections for Experience, Projects, Activities, and a minimalist Contact footer. The design prioritizes visual impact and a strong, confident brand identity. -->
+    <!-- Visualization & Content Choices: 
+        - Hero Section: Goal: Impress/Brand -> Viz: Exact replication of the reference design with giant background text, overlaid central image, and a short bio. -> Interaction: None, pure visual statement. -> Justification: Creates an immediate, high-impact, professional first impression.
+        - Experience/Projects: Goal: Inform -> Viz: Minimalist list and card layouts. -> Interaction: On-scroll fade-in animations; click for modal on projects. -> Justification: Maintains the clean, uncluttered aesthetic while presenting core information effectively.
+        - Color/Font: Goal: Replicate Design -> Viz: Direct implementation of the reference image's color palette (#1A1A1A, #8B0000, #FFFFFF) and typography style (Oswald for headings, Inter for body). -> Justification: To meet the user's explicit request for an exact copy of the design.
+        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #FFFFFF; color: #1A1A1A; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
+            background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .font-heading { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+        .content-section { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .content-section.visible { opacity: 1; transform: translateY(0); }
+        .modal-overlay { transition: opacity 0.3s ease; }
+        .modal-content { transition: transform 0.3s ease; }
+        .project-overlay { transition: opacity 0.3s ease-in-out; }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#1A1A1A',
+                        'brand-red': '#8B0000',
+                        'brand-grey': '#797979',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="sticky top-0 z-50 bg-white/80 backdrop-blur-sm transition-shadow duration-300">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="flex justify-between items-center h-24">
+                <a href="#" class="font-heading font-bold text-lg tracking-wider">Adithya Kammati</a>
+                <nav class="hidden md:flex items-center space-x-10">
+                    <a href="#about" class="text-brand-dark hover:text-brand-red transition-colors">About</a>
+                    <a href="#experience" class="text-brand-dark hover:text-brand-red transition-colors">Experience</a>
+                    <a href="#projects" class="text-brand-dark hover:text-brand-red transition-colors">Projects</a>
+                    <a href="#contact" class="border border-brand-dark text-brand-dark font-medium py-2 px-6 hover:bg-brand-dark hover:text-white transition-colors">Contact</a>
+                </nav>
+                 <button id="mobileMenuBtn" class="md:hidden p-2">
+                    <span class="block w-6 h-0.5 bg-brand-dark"></span><span class="block w-6 h-0.5 bg-brand-dark mt-1.5"></span>
+                </button>
+            </div>
+        </div>
+         <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg">
+             <div class="flex flex-col items-center space-y-4 p-6">
+                <a href="#about" class="nav-link text-lg">About</a>
+                <a href="#experience" class="nav-link text-lg">Experience</a>
+                <a href="#projects" class="nav-link text-lg">Projects</a>
+                <a href="#contact" class="nav-link text-lg">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative pt-16 pb-32">
+            <div class="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
+                <h1 class="font-heading text-[20vw] lg:text-[180px] font-bold text-slate-100 whitespace-nowrap">ADITHYA K.</h1>
+            </div>
+            <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 grid grid-cols-1 md:grid-cols-2 items-center gap-12">
+                <!-- IMPORTANT: Replace this 'src' with the direct URL to your photo -->
+                <div class="flex justify-center md:justify-start">
+                    <img src="https://placehold.co/320x320/000000/FFFFFF?text=AK" alt="Adithya Kammati" class="w-64 h-64 md:w-80 md:h-80 rounded-full shadow-2xl object-cover">
+                </div>
+                <div class="text-center md:text-left">
+                    <p class="text-lg md:text-xl font-medium leading-relaxed">Results-oriented Computer Science & AI student with a proven ability to deliver high-impact solutions, from reducing critical bugs by 80% to improving user retention by 15%.</p>
+                     <a href="https://drive.google.com/file/d/1HvL7n6gLu78eHkmMwPtj_SOHrFP5m7vE/view?usp=sharing" target="_blank" class="inline-block mt-8 border border-brand-dark text-brand-dark font-medium py-3 px-8 hover:bg-brand-dark hover:text-white transition-colors">View Resume</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Wrapper -->
+        <div class="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 py-24 space-y-32">
+            
+             <!-- About Section -->
+            <section id="about" class="content-section">
+                <h2 class="font-heading text-4xl font-bold mb-16 text-center">About Me</h2>
+                <p class="text-center text-xl text-brand-grey leading-relaxed max-w-3xl mx-auto">
+                    I am a Computer Science & AI student at Newton School of Technology with demonstrated success in full-stack development and machine learning. I am seeking a challenging AI or Software Engineering role to contribute to innovative, large-scale solutions.
+                </p>
+            </section>
+
+
+            <!-- Experience Section -->
+            <section id="experience" class="content-section">
+                <h2 class="font-heading text-4xl font-bold mb-16 text-center">Professional Experience</h2>
+                 <div class="space-y-12">
+                     <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                         <div class="md:col-span-1"><p class="font-semibold">Disprz</p><p class="text-brand-grey">Feb 2025 - Jul 2025</p></div>
+                         <div class="md:col-span-3"><h3 class="text-xl font-semibold">Software Engineer Intern</h3><p class="mt-2 text-brand-grey">Reduced critical bugs by 80% through rigorous root cause analysis. Implemented a robust video playback solution, saving an estimated 200+ engineering hours annually.</p></div>
+                     </div>
+                     <hr/>
+                     <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                         <div class="md:col-span-1"><p class="font-semibold">Creative Commons</p><p class="text-brand-grey">Summer 2024</p></div>
+                         <div class="md:col-span-3"><h3 class="text-xl font-semibold">Google Summer of Code Contributor</h3><p class="mt-2 text-brand-grey">Enhanced content licensing tools using Python and JavaScript, improving usability for over 10,000 users by 15%.</p></div>
+                     </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="content-section">
+                <h2 class="font-heading text-4xl font-bold mb-16 text-center">Featured Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                     <div class="project-card cursor-pointer group" data-title="Anonymous.Dev" data-description="Architected and deployed a full-stack developer collaboration platform using Next.js and Prisma, successfully onboarding over 200 beta users. Engineered 'AI Sage,' a developer-matching system that increased successful project collaborations by 20%." data-tech="Next.js,TypeScript,Prisma,Node.js" data-code="https://github.com/adi-gitt/Anonymous.Dev" data-live="https://anonymousdev.vercel.app/">
+                        <div class="bg-slate-100 h-80 rounded-lg flex items-center justify-center overflow-hidden relative">
+                            <img src="https://placehold.co/600x400/1A1A1A/FFFFFF?text=Anonymous.Dev" alt="Anonymous.Dev Project" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="project-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100"><span class="text-white font-semibold text-lg">View Project</span></div>
+                        </div>
+                        <h3 class="font-semibold text-lg mt-4 group-hover:text-brand-red">Anonymous.Dev</h3>
+                    </div>
+                    <div class="project-card cursor-pointer group" data-title="Ai Trip Planner" data-description="Developed an AI-powered tool that generates personalized travel itineraries based on user preferences. Fine-tuned recommendation algorithms to improve user retention by 15%." data-tech="Node.js,React,Generative AI" data-code="https://github.com/adi-gitt/TRIPWHIZ-ai-based-trip-planner" data-live="https://tripwhizx.vercel.app/">
+                        <div class="bg-slate-100 h-80 rounded-lg flex items-center justify-center overflow-hidden relative">
+                            <img src="https://placehold.co/600x400/8B0000/FFFFFF?text=AI+Trip+Planner" alt="AI Trip Planner Project" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                             <div class="project-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100"><span class="text-white font-semibold text-lg">View Project</span></div>
+                        </div>
+                        <h3 class="font-semibold text-lg mt-4 group-hover:text-brand-red">AI Trip Planner</h3>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="content-section">
+                <h2 class="font-heading text-4xl font-bold mb-16 text-center">Skills & Technologies</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Languages</h3>
+                        <p class="text-brand-grey leading-relaxed">TypeScript, Python, JavaScript, Java, C++, SQL</p>
+                    </div>
+                     <div>
+                        <h3 class="text-xl font-semibold mb-4">Frameworks & Libraries</h3>
+                        <p class="text-brand-grey leading-relaxed">React, Next.js, Node.js, Express.js, Django, TensorFlow</p>
+                    </div>
+                     <div>
+                        <h3 class="text-xl font-semibold mb-4">Platforms & Tools</h3>
+                        <p class="text-brand-grey leading-relaxed">AWS, Google Cloud (GCP), Docker, Jira, Git, Figma</p>
+                    </div>
+                </div>
+            </section>
+
+             <!-- Leadership Section -->
+            <section id="leadership" class="content-section">
+                <h2 class="font-heading text-4xl font-bold mb-16 text-center">Leadership & Activities</h2>
+                 <div class="space-y-12">
+                     <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                         <div class="md:col-span-1"><p class="font-semibold">Harvard University</p><p class="text-brand-grey">HPAIR Delegate</p></div>
+                         <div class="md:col-span-3"><p class="text-brand-grey">Selected as one of 500+ global participants to collaborate on AI ethics and emerging technology trends.</p></div>
+                     </div>
+                     <hr/>
+                      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                         <div class="md:col-span-1"><p class="font-semibold">Stealth Fire Hackathon</p><p class="text-brand-grey">3rd Place</p></div>
+                         <div class="md:col-span-3"><p class="text-brand-grey">Developed "Thinkfy," an AI ideation platform using React and LangChain with an 85% adoption rate among participants.</p></div>
+                     </div>
+                     <hr/>
+                     <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                         <div class="md:col-span-1"><p class="font-semibold">IIT Delhi</p><p class="text-brand-grey">Campus Ambassador</p></div>
+                         <div class="md:col-span-3"><p class="text-brand-grey">Organized 5+ technical workshops and events for over 300 students, increasing community participation by 40%.</p></div>
+                     </div>
+                </div>
+            </section>
+            
+            <!-- Certifications Section -->
+            <section id="certifications" class="content-section">
+                <h2 class="font-heading text-4xl font-bold mb-16 text-center">Certifications</h2>
+                 <div class="text-center max-w-2xl mx-auto">
+                     <h3 class="text-xl font-semibold">CS50's Introduction to Cybersecurity</h3>
+                     <p class="text-brand-grey mt-2">Completed an intensive, project-based curriculum from <span class="font-semibold text-brand-dark">Harvard University</span> covering key domains of cybersecurity, including cryptography, network security, and operational security.</p>
+                 </div>
+            </section>
+
+
+        </div>
+         <!-- Contact Footer -->
+        <footer id="contact" class="bg-brand-dark text-white">
+            <div class="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 py-24 text-center">
+                 <h2 class="font-heading text-4xl font-bold mb-4">Contact Me</h2>
+                 <p class="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">I'm seeking new opportunities and would love to build something great together.</p>
+                 <button id="copyEmailBtn" data-email="kammati.a23csai@nst.rishihood.edu.in" class="border border-white text-white font-medium py-3 px-8 hover:bg-white hover:text-brand-dark transition-colors text-lg">Copy My Email</button>
+                 <p id="copyConfirmation" class="text-green-400 mt-4 h-6 opacity-0 transition-opacity duration-300">Email copied!</p>
+                 <div class="mt-16 flex justify-center gap-6">
+                     <a href="https://www.linkedin.com/in/adithya-kammati-04b382289/" target="_blank" class="text-slate-400 hover:text-white transition-colors">LINKEDIN</a>
+                     <a href="https://github.com/adi-gitt" target="_blank" class="text-slate-400 hover:text-white transition-colors">GITHUB</a>
+                     <a href="https://leetcode.com/u/adithya_kammati/" target="_blank" class="text-slate-400 hover:text-white transition-colors">LEETCODE</a>
+                </div>
+                <div class="mt-16 text-brand-grey text-sm">
+                    <p>Delhi NCR, India</p>
+                    <p id="copyright" class="mt-4"></p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+     <!-- Project Modal -->
+    <div id="projectModal" class="modal-overlay fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4 hidden opacity-0">
+        <div class="modal-content bg-white rounded-lg shadow-2xl w-full max-w-2xl p-8 relative transform scale-95">
+            <button id="closeModalBtn" class="absolute top-4 right-4 text-3xl text-slate-400 hover:text-slate-800" aria-label="Close modal">&times;</button>
+            <h3 id="modalTitle" class="font-heading text-3xl font-bold text-brand-dark mb-4"></h3>
+            <p id="modalDescription" class="text-brand-grey mb-6 text-lg"></p>
+            <div id="modalTech" class="flex flex-wrap gap-2 mb-8"></div>
+            <div id="modalLinks" class="flex items-center gap-4"></div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const header = document.getElementById('header');
+            const sections = document.querySelectorAll('.content-section');
+            const projectCards = document.querySelectorAll('.project-card');
+            const modal = document.getElementById('projectModal');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const copyEmailBtn = document.getElementById('copyEmailBtn');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+
+             // Header shadow on scroll
+            window.addEventListener('scroll', () => {
+                header.classList.toggle('shadow-md', window.scrollY > 20);
+            });
+
+            // Smooth scrolling for navigation
+            navLinks.forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                    if (!mobileMenu.classList.contains('hidden')) { mobileMenu.classList.add('hidden'); }
+                });
+            });
+
+            // Mobile menu toggle
+            mobileMenuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+
+            // On-scroll animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            sections.forEach(section => observer.observe(section));
+            
+            // Modal Logic
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription');
+            const modalTech = document.getElementById('modalTech');
+            const modalLinks = document.getElementById('modalLinks');
+
+            function openModal(card) {
+                modalTitle.textContent = card.dataset.title;
+                modalDescription.textContent = card.dataset.description;
+                modalTech.innerHTML = '';
+                card.dataset.tech.split(',').forEach(tech => {
+                    const techEl = document.createElement('span');
+                    techEl.className = 'bg-slate-200 text-slate-700 text-sm font-medium px-3 py-1 rounded-full';
+                    techEl.textContent = tech;
+                    modalTech.appendChild(techEl);
+                });
+                modalLinks.innerHTML = '';
+                if (card.dataset.live && card.dataset.live !== '#') {
+                    modalLinks.innerHTML += `<a href="${card.dataset.live}" target="_blank" class="inline-block bg-brand-red text-white font-semibold py-2 px-6 rounded-md hover:opacity-80 transition-opacity">Live Demo</a>`;
+                }
+                if (card.dataset.code && card.dataset.code !== '#') {
+                    modalLinks.innerHTML += `<a href="${card.dataset.code}" target="_blank" class="inline-block bg-brand-dark text-white font-semibold py-2 px-6 rounded-md hover:opacity-80 transition-opacity">View Code</a>`;
+                }
+                modal.classList.remove('hidden');
+                setTimeout(() => { modal.classList.remove('opacity-0'); modal.querySelector('.modal-content').classList.remove('scale-95'); }, 10);
+            }
+            
+            function closeModal() {
+                 modal.classList.add('opacity-0');
+                 modal.querySelector('.modal-content').classList.add('scale-95');
+                 setTimeout(() => modal.classList.add('hidden'), 300);
+            }
+
+            projectCards.forEach(card => {
+                card.setAttribute('role', 'button');
+                card.setAttribute('aria-label', `View details for ${card.dataset.title}`);
+                card.addEventListener('click', () => openModal(card));
+            });
+            closeModalBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+            // Copy Email Logic
+            if (copyEmailBtn) {
+                const copyConfirmation = document.getElementById('copyConfirmation');
+                copyEmailBtn.addEventListener('click', function() {
+                    const email = this.dataset.email;
+                    navigator.clipboard.writeText(email).then(() => {
+                        copyConfirmation.classList.remove('opacity-0');
+                        setTimeout(() => { copyConfirmation.classList.add('opacity-0'); }, 2000);
+                    }).catch(err => console.error('Failed to copy: ', err));
+                });
+            }
+            
+            // Dynamic Copyright
+            const copyright = document.getElementById('copyright');
+            if(copyright) {
+                copyright.textContent = `© ${new Date().getFullYear()} Aditya Kammati™`;
+            }
+        });
+    </script>
+</body>
+</html>
+
